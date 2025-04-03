@@ -1,0 +1,43 @@
+<script>fetch('https://restcountries.com/v3.1/all')
+  .then(response => response.json())
+  .then(data => {
+    for (let i = 0; i < data.length; i++) {
+      let country = data[i];
+
+      // Destructure properties with default values
+      let { 
+        altSpellings = ['Not Found'], 
+        capital = ['Not Found'], 
+        name = {} 
+      } = country;
+
+      let altSpelling = altSpellings[0]; // First alternative name
+        let officialName = name.official || 'Not Found'; // Official country name
+
+
+      console.log(`${altSpelling}, ${capital[0]}, ${officialName}`);
+    }
+  })
+  .catch(error => console.error('Error fetching data:', error));
+</script>
+
+
+<script>/*fetch('https://restcountries.com/v3.1/all')
+  .then(response => response.json())
+  .then(data => {
+    data.forEach(country => {
+      // Destructure properties with default values
+      let { 
+        altSpellings = ['Not Found'], 
+        capital = ['Not Found'], 
+        name = {} 
+      } = country;
+
+      let altSpelling = altSpellings[0]; // First alternative name
+      let officialName = name.official || 'Not Found'; // Official country name
+
+      console.log(`Alt Spelling: ${altSpelling}, Capital: ${capital[0]}, Official Name: ${officialName}`);
+    });
+  })
+  .catch(error => console.error('Error fetching data:', error));*/
+</script>

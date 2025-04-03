@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>HEADER SECTION</title>
+	<!--link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"-->
+	
+</head><div class="side-menu">
+  <a href="#">Navttc</a>
+  <a href="#">About</a>
+
+  <!-- Submenu 1 -->
+  <input type="checkbox" id="submenu1">
+  <label for="submenu1">Services</label>
+  <div class="submenu">
+    <a href="#"><li>Web navttc</li></a>
+    <a href="#">Development</a>
+    <a href="#">SEO</a>
+  </div>
+
+  <!-- Submenu 2 -->
+  <input type="checkbox" id="submenu2">
+  <label for="submenu2">Products</label>
+  <div class="submenu">
+    <a href="#">Software</a>
+    <a href="#">Hardware</a>
+    <a href="#">Accessories</a>
+  </div>
+
+  <a href="#">Contact</a>
+</div>
+
+<style>body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .side-menu {
+      width: 250px;
+      background-color: #333;
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      left: 0;
+      color: white;
+      padding-top: 20px;
+    }
+
+    .side-menu a {
+      color: white;
+      text-decoration: none;
+      display: block;
+      padding: 10px 20px;
+      transition: background 0.3s ease;
+    }
+
+    .side-menu a:hover {
+      background-color: #444;
+    }
+
+    /* Checkbox hack voor het submenu */
+    input[type="checkbox"] {
+      display: none;
+    }
+
+    .submenu {
+      max-height: 0;
+      overflow: hidden;
+      padding-left: 20px;
+      background-color: #555;
+      transition: max-height 0.5s ease; /* Vloeiende overgang */
+    }
+
+    .submenu a {
+      padding: 10px 20px;
+    }
+
+   
+    input[type="checkbox"]:checked + label + .submenu {
+      max-height: 500px; 
+    }
+
+    /* Styling voor het label */
+    label {
+      cursor: pointer;
+      display: block;
+      padding: 10px 20px;
+      background-color: #333;
+    }
+
+    label:hover {
+      background-color: #444;
+    }
+
+    /* Styling voor pijltje */
+    label::after {
+      content: " ▼";
+      float: right;
+    }
+
+    input[type="checkbox"]:checked + label::after {
+      content: " ▲";
+    }</style>
+	
+	
+	</body>
+</html>
