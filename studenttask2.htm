@@ -1,0 +1,80 @@
+<script>// Sample student array
+let studentsArray = [
+    { name: "stu1", age: 18, studentId: 11, courses: ["a", "b", "c"] },
+    { name: "stu2", age: 19, studentId: 12, courses: ["d", "e", "f"] },
+    { name: "stu3", age: 20, studentId: 13, courses: ["g", "h", "i"] },
+    { name: "stu4", age: 21, studentId: 14, courses: ["j", "k", "l"] },
+    { name: "stu5", age: 22, studentId: 15, courses: ["n", "o", "p"] }
+];
+
+// Function to register a new student
+function registerStudent(name, age, studentId, courses) {
+    let studentExists = studentsArray.some(student => student.studentId === studentId);
+    
+    if (studentExists) {
+        console.log("Student ID already exists. Registration failed.");
+        return;
+    }
+    
+    let newStudent = { name, age, studentId, courses };
+    studentsArray.push(newStudent);
+    console.log("Student registered successfully:", newStudent);
+}
+
+// Function to update student information
+function updateStudent(studentId, newAge, newCourses) {
+    let student = studentsArray.find(student => student.studentId === studentId);
+    
+    if (!student) {
+        console.log("Student not found.");
+        return;
+    }
+    
+    student.age = newAge;
+    student.courses = newCourses;
+    console.log("Student updated successfully:", student);
+}
+
+// Function to calculate grade based on marks
+function calculateGrade(studentId, marks) {
+    let student = studentsArray.find(student => student.studentId === studentId);
+    
+    if (!student) {
+        console.log("Student not found.");
+        return;
+    }
+
+    let grade;
+    if (marks >= 90 && marks <= 100) {
+        grade = "A";
+    } else if (marks >= 80 && marks < 90) {
+        grade = "B";
+    } else if (marks >= 70 && marks < 80) {
+        grade = "C";
+    } else if (marks >= 60 && marks < 70) {
+        grade = "D";
+    } else {
+        grade = "F";
+    }
+
+    console.log(`Student: ${student.name}, Grade: ${grade}`);
+}
+
+// Function to display student details
+function displayStudent(studentId) {
+    let student = studentsArray.find(student => student.studentId === studentId);
+    
+    if (!student) {
+        console.log("Student not found.");
+        return;
+    }
+    
+    console.log("Student Details:", student);
+}
+
+// Test cases
+registerStudent("stu6", 23, 16, ["x", "y", "z"]);
+updateStudent(12, 20, ["m", "n", "o"]);
+calculateGrade(13, 85);
+displayStudent(14);
+</script>
