@@ -1,0 +1,41 @@
+<script>
+async function runProcess() {
+  try {
+    const response = await fetch('https://hmftj.com/ibt/my.json');
+    const studentList = await response.json();
+    console.log("Original JSON:", studentList);
+
+    const newStudent = {
+      name: "alina",
+      contact: "+787676",
+      address: "DHA 3333"
+    };
+
+    studentList.push(newStudent);
+
+    const updatedJsonString = JSON.stringify(studentList, null, 2);
+    console.log("Updated JSON:", updatedJsonString);
+
+    // Simulate saving to a file (this only works in Node.js or with server-side logic)
+    // In a browser, you could download the file instead:
+    const blob = new Blob([updatedJsonString], { type: "application/json" });
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = "updated_students.json";
+    link.click();
+
+    return 1;
+
+  } catch (error) {
+    console.error("Error occurred:", error);
+    return 0;
+  }
+}
+
+// Run the function and act based on the result
+runProcess().then(result => {
+  if (result === 1) {
+    console.log("me ok and runng");
+  }
+});
+</script>
